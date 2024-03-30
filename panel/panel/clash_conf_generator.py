@@ -238,7 +238,7 @@ def get_providers(connect_url, db, is_for_subscription=False, enabled_tiers=None
 
     return providers
 
-def generate_conf_singlefile(user_id, connect_url, meta=False, premium=False, enabled_tiers=None):
+def generate_conf_singlefile(user_id, connect_url, meta=False, premium=False, enabled_tiers=None, custom_info_entries=None):
     if not utils.has_active_endpoints():
         raise Exception('No active domains found')
 
@@ -252,6 +252,13 @@ def generate_conf_singlefile(user_id, connect_url, meta=False, premium=False, en
         country_id = country['id']
         if settings.get_route_direct_country_enabled(country_id, db=db):
             ips_direct_countries.append(country_id)
+    domain_direct_suffixes = config.get_regional_domain_suffixes(ips_direct_countries)
+
+    if custom_info_entries is not None and isinstance(custom_info_entries, list):
+        current_time = datetime.now()
+        if len(ips_direct_countries) == 1:
+            current_time = config.current_time_in_timezone(ips_direct_countries[0])
+        custom_info_entries = [f"Updated @ {current_time.strftime('%Y-%m-%d %H:%M')}"] + custom_info_entries
     
     udp_exists = settings.get_provider_enabled('trojanws', db=db)
 
@@ -300,6 +307,8 @@ def generate_conf_singlefile(user_id, connect_url, meta=False, premium=False, en
         tiers=tiers,
         groups=groups,
         manual_tier_select_clash=settings.get_manual_tier_select_clash(),
+        domain_direct_suffixes=domain_direct_suffixes,
+        custom_info_entries=custom_info_entries if custom_info_entries is not None else [],
     )
 
     return result
@@ -325,6 +334,7 @@ def generate_conf(file_name, user_id, connect_url, meta=False, premium=False, en
         country_id = country['id']
         if settings.get_route_direct_country_enabled(country_id, db=db):
             ips_direct_countries.append(country_id)
+    domain_direct_suffixes = config.get_regional_domain_suffixes(ips_direct_countries)
 
     domains = set([config.get_panel_domain()])
     if settings.get_providers_from_all_endpoints(db=db):
@@ -345,6 +355,7 @@ def generate_conf(file_name, user_id, connect_url, meta=False, premium=False, en
             meta=meta,
             premium=premium,
             ips_direct_countries=ips_direct_countries,
+            domain_direct_suffixes=domain_direct_suffixes,
             user_id=user_id,
             panel_domain=config.get_panel_domain(),
             domains=list(domains),
