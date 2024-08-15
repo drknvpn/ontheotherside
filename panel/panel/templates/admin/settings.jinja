@@ -12,38 +12,38 @@
 </style>
 <form method="post" class="mt-5 px-3">
     <div class="form-group mb-4">
-        <label for="server_ip" class="fw-bold">Server IP Address</label>
+        <label for="server_ip" class="fw-bold">IP-адрес сервера</label>
         <input type="text" class="form-control" id="server_ip" name="server_ip" value="{{ server_ip }}" style="max-width: 400px; background: #eee;" readonly>
     </div>
     <div class="form-group mb-4">
-        <label for="main_domain" class="fw-bold">User Link & Admin Panel Domain</label>
+        <label for="main_domain" class="fw-bold">Ссылка на домен для панели и для профилей пользователя</label>
         <input type="text" class="form-control" id="main_domain" name="main_domain" value="{{ main_domain }}" style="max-width: 400px; background: #eee;" readonly>
-        <small class="form-text text-muted">Links generated for each user will be served from this domain. If you want to change it, run the <a href="https://github.com/VZiChoushaDui/Libertea#installation" target="_blank">install script</a> again.</small>
+        <small class="form-text text-muted">Ссылки, сгенерированные для каждого пользователя, будут доступны из этого домена. Если вы хотите изменить его, запустите <a href="https://github.com/VZiChoushaDui/Libertea#installation" target="_blank">установочный скрипт</a> ещё раз.</small>
     </div>
     <div class="form-group mb-4">
-        <label for="camouflage_domain" class="fw-bold">Camouflage Website</label>
+        <label for="camouflage_domain" class="fw-bold">Сайт для маскировки панели</label>
         <input type="text" class="form-control" id="camouflage_domain" name="camouflage_domain" value="{{ camouflage_domain }}" style="max-width: 400px;" placeholder="https://">
 
         {% if camouflage_error != None %}
             {% if camouflage_error == "camouflage_domain_not_https" %}
-            <small class="form-text text-danger fw-bold">Camouflage website must start with https://</small>
+            <small class="form-text text-danger fw-bold">Сайт должен начинаться с https://</small>
             {% elif camouflage_error == "camouflage_domain_not_http_https" %}
-            <small class="form-text text-danger fw-bold">Camouflage website must start with http:// or https://</small>
+            <small class="form-text text-danger fw-bold">Сайт должен начинаться с http:// или https://</small>
             {% elif camouflage_error == "camouflage_domain_not_reachable" %}
-            <small class="form-text text-danger fw-bold">Camouflage website is not reachable. Please check the domain name, or use another one.</small>
+            <small class="form-text text-danger fw-bold">Сайт недоступен. Пожалуйста, проверьте доменное имя или используйте другое.</small>
             {% elif camouflage_error == "camouflage_domain_not_supported" %}
-            <small class="form-text text-danger fw-bold">This website is not supported. Please choose another one.</small>
+            <small class="form-text text-danger fw-bold">Этот веб-сайт не поддерживается. Пожалуйста, выберите другой.</small>
             {% else %}
             <small class="form-text text-danger fw-bold">{{ camouflage_error }}</small>
             {% endif %}
         {% endif %}
 
-        <small class="form-text text-muted">When you visit the home page of your domains, contents of this domain will be shown instead.</small>
-        <small class="form-text text-muted">Be creative in choosing your domain, so the chance of your domains being blocked decreases.</small>
+        <small class="form-text text-muted">Когда вы заходите на домашнюю страницу своих доменов, вместо нее будет отображаться содержимое этого домена.</small>
+        <small class="form-text text-muted">Проявите творческий подход к выбору домена, так вероятность того, что ваши домены будут заблокированы, снизится.</small>
     </div>
     <div class="form-group">
         <label class="form-check-label fw-bold">
-            Protocols<br />
+            Протоколы<br />
         </label>
     </div>
     <div class="mb-4 mx-2 route-direct-countries-list" style="border-left: 2px solid #aaa; padding-left: 8px;">
@@ -80,13 +80,13 @@
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="on" name="provider_vmessgrpc" id="provider_vmessgrpc" {% if provider_enabled.vmessgrpc %}checked{% endif %}>
             <label class="form-check-label" for="provider_vmessgrpc">
-                VMESS (gRPC) <i style="opacity: 0.75; font-size: 12px;">Not recommended</i>
+                VMESS (gRPC) <i style="opacity: 0.75; font-size: 12px;">Не рекомендуется</i>
             </label>
         </div>
     </div>
     <div class="form-group">
         <label class="form-check-label fw-bold">
-            Route regional IPs directly (Without VPN)<br />
+            Маршрутизируйте региональные IP-адреса напрямую (без VPN)<br />
         </label>
     </div>
     <div class="mb-4 mx-2 route-direct-countries-list" style="border-left: 2px solid #aaa; padding-left: 8px;">
@@ -100,17 +100,17 @@
         {% endfor %}
     </div>
     <div class="form-group mb-4">
-        <label for="concurrentIps" class="fw-bold">Default max concurrent IPs to connect</label>
+        <label for="concurrentIps" class="fw-bold">Максимальное количество одновременных IP-адресов для подключения к одному профилю по умолчанию</label>
         <input type="number" class="form-control" id="concurrentIps" name="max_ips" value="{{ max_ips }}" style="max-width: 400px;">
     </div>
     <div class="form-check mb-4">
         <input class="form-check-input" type="checkbox" value="on" name="manual_tier_select_clash" id="manual_tier_select_clash" {% if manual_tier_select_clash %}checked{% endif %}>
         <label class="form-check-label" for="manual_tier_select_clash">
-            Allow users to manually select proxy priority groups (tiers) in Clash clients
+            Разрешить пользователям вручную выбирать приоритетные группы (уровни) прокси-серверов в Clash clients
         </label>
     </div>
     <div class="form-group mb-4">
-        <button class="show-advanced-settings btn btn-link px-0">Show advanced settings</button>
+        <button class="show-advanced-settings btn btn-link px-0">Показать расширенные настройки</button>
     </div>
     <script>
         document.querySelector(".show-advanced-settings").addEventListener("click", function(e) {
@@ -122,9 +122,9 @@
     <div class="advanced-settings" style="display: none">
         <div class="form-group">
             <label class="form-check-label fw-bold">
-                Default available servers<br />
+                Доступные серверы по умолчанию<br />
                 <span style="opacity: 0.75; font-size: 12px;">
-                    Select which priority groups should be visible to each user by default. This affects Clash, V2Ray and Shadowsocks connections.
+                    Выберите, какие группы приоритетов должны быть видны каждому пользователю по умолчанию. Это влияет на соединения Clash, V2 Ray и Shadowsocks.
                 </span>
             </label>
         </div>
@@ -139,18 +139,18 @@
             {% endfor %}
         </div>
         <div class="mt-1 mb-4">
-            <a href="#" class="btn btn-link btn-sm px-0 reset-priority-config">Reset priority configuration for all users</a>
+            <a href="#" class="btn btn-link btn-sm px-0 reset-priority-config">Сброс конфигурации приоритета для всех пользователей</a>
             <script>
                 document.querySelector(".reset-priority-config").addEventListener("click", function(e) {
                     e.preventDefault();
-                    if (confirm("Are you sure you want to reset priority configuration for all users?")) {
+                    if (confirm("Вы уверены, что хотите сбросить настройки приоритета для всех пользователей?")) {
                         fetch("/{{ admin_uuid }}/settings/reset_tiers/", {
                             method: "POST",
                         }).then(function(response) {
                             if (response.ok) {
-                                alert("Priority configuration reset successfully");
+                                alert("Настройки приоритета успешно сброшены");
                             } else {
-                                alert("Error resetting priority configuration");
+                                alert("Ошибка при сбросе приоритетной конфигурации");
                             }
                         });
                     }
@@ -159,7 +159,7 @@
         </div>
         <div class="form-group">
             <label class="form-check-label fw-bold">
-                Server selection method (Clash only)<br />
+                Метод выбора сервера (Только для программы Clash)<br />
             </label>
         </div>
         <div class="mb-5 mx-2 pt-2 tier-proxygroup-types-list row" style="border-left: 2px solid #aaa;">
@@ -176,7 +176,7 @@
         </div>
 
         <div class="form-group mb-4">
-            <label for="proxy_port" class="fw-bold">Secondary proxy port</label>
+            <label for="proxy_port" class="fw-bold">Дополнительный прокси-порт</label>
             <select class="form-select" aria-label="Secondary proxy port" id="proxy_port" name="proxy_port">
                 <option value="443" {% if proxy_port == '443' %}selected{% endif %}>443</option>
                 <option value="80" {% if proxy_port == '80' %}selected{% endif %}>80</option>
@@ -186,31 +186,31 @@
         <div class="form-check mb-4">
             <input class="form-check-input" type="checkbox" value="on" name="single_file_clash" id="single_file_clash" {% if single_file_clash %}checked{% endif %}>
             <label class="form-check-label" for="single_file_clash">
-                Use single-file clash configuration<br />
-                <i style="opacity: 0.75">Disables one-click auto update for users, but makes initial import faster on poor connections</i>
+                Использование однофайловой конфигурации столкновений<br />
+                <i style="opacity: 0.75">Отключает автоматическое обновление в один клик для пользователей, но ускоряет первоначальный импорт при плохом подключении</i>
             </label>
         </div>
         <div class="form-check mb-4">
             <input class="form-check-input" type="checkbox" value="on" name="add_domains_even_if_inactive" id="add_domains_even_if_inactive" {% if add_domains_even_if_inactive %}checked{% endif %}>
             <label class="form-check-label" for="add_domains_even_if_inactive">
-                Add all domains to Clash config, even if they are not active or reachable from server
+                Добавьте все домены в конфигурацию Clash, даже если они не активны или недоступны с сервера
             </label>
         </div>
         <div class="form-check mb-4">
             <input class="form-check-input" type="checkbox" value="on" name="health_check" id="health_check" {% if health_check %}checked{% endif %}>
             <label class="form-check-label" for="health_check">
-                Periodic availability monitoring from clients <strong>[BETA]</strong><br />
-                <i style="opacity: 0.75">Only single-file clash configuration supports this feature</i>
+                Периодический контроль доступности со стороны клиентов <strong>[BETA]</strong><br />
+                <i style="opacity: 0.75">Эту функцию поддерживает только однофайловая конфигурация столкновений.</i>
             </label>
         </div>
         <div class="form-check mb-4">
             <input class="form-check-input" type="checkbox" value="on" name="providers_from_all_endpoints" id="providers_from_all_endpoints" {% if providers_from_all_endpoints %}checked{% endif %}>
             <label class="form-check-label" for="providers_from_all_endpoints">
-                Add all VPN endpoints as provider source URLs
+                Добавьте все конечные точки VPN в качестве URL-адресов источников провайдера
             </label>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-primary">Сохранить</button>
 </form>
 
 {% endblock %}
