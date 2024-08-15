@@ -9,65 +9,65 @@
         opacity: 0.75;
     }
 </style>
-<h1 class="mt-5">Add new secondary proxy</h1>
+<h1 class="mt-5">Добавьте новый вторичный прокси-сервер</h1>
 <div class="section">
     <div class="mt-5">
         <div class="form-group mb-4">
-            <p>Secondary proxy is a separate server that will tunnel the traffic to your main server.</p>
-            <p>You can use it for redundancy, or use a domestic server as secondary proxy for better connection quality.</p>
+            <p>Вторичный прокси - это отдельный сервер, который будет туннелировать трафик на ваш основной сервер.</p>
+            <p>Вы можете использовать его для резервирования или использовать домашний сервер в качестве вторичного прокси для улучшения качества соединения.</p>
         </div>
         <div class="form-group mb-3">
             <p>
                 <strong>Tunnel type:</strong><span id="proxyTypeAutoSelectLabel"> Automatic</span>
             </p>
-            <a href="#" id="showAdvancedOptions">Select tunnel type manually</a>
+            <a href="#" id="showAdvancedOptions">Выберите тип туннеля вручную</a>
         </div>
         <div class="form-group mb-4" id="typesAdvanced" style="display: none">
             <div class="form-check mb-3">
                 <input class="form-check-input" type="radio" name="proxyType" id="proxyTypeAuto" checked>
                 <label class="form-check-label" for="proxyTypeAuto">
-                    <p><strong>Automatic</strong></p>
-                    <p>This will use SSH tunnel if your secondary server is in a country with risk of censorship, otherwise will use TCP tunnel.</p>
+                    <p><strong>Автоматический</strong></p>
+                    <p>Это позволит использовать SSH-туннель, если ваш вторичный сервер находится в стране с риском цензуры, в противном случае будет использоваться TCP-туннель.</p>
                 </label>
             </div>
             <div class="form-check mb-3">
                 <input class="form-check-input" type="radio" name="proxyType" id="proxyTypeTcp">
                 <label class="form-check-label" for="proxyTypeTcp">
-                    <p><strong>TCP Tunnel</strong></p>
-                    <p>Your secondary server will forward traffic to your main server on TCP layer.</p>
-                    <p><i>Not recommended if your secondary server is NOT in a free country</i></p>
+                    <p><strong>Туннель TCP</strong></p>
+                    <p>Ваш вторичный сервер будет перенаправлять трафик на ваш основной сервер на уровне TCP.</p>
+                    <p><i>Не рекомендуется, если ваш вторичный сервер находится НЕ в свободной стране</i></p>
                 </label>
             </div>
             <div class="form-check mb-3">
                 <input class="form-check-input" type="radio" name="proxyType" id="proxyTypeSsh">
                 <label class="form-check-label" for="proxyTypeSsh">
-                    <p><strong>SSH Tunnel</strong></p>
-                    <p>Your secondary server will forward traffic to your main server via an SSH connection.</p>
-                    <p><i>This can use more resources on both secondary and main servers. If you're low on resources, use HTTPS tunnel instead.</i></p>
+                    <p><strong>Туннель SSH</strong></p>
+                    <p>Ваш вторичный сервер будет перенаправлять трафик на ваш основной сервер через SSH-соединение.</p>
+                    <p><i>Это может потребовать больше ресурсов как на вторичном, так и на главном сервере. Если у вас мало ресурсов, используйте вместо этого HTTPS-туннель.</i></p>
                 </label>
             </div>
             <div class="form-check mb-3">
                 <input class="form-check-input" type="radio" name="proxyType" id="proxyTypeHttps">
                 <label class="form-check-label" for="proxyTypeHttps">
-                    <p><strong>HTTPS Tunnel</strong></p>
-                    <p>Your secondary server will forward traffic to your main server via HTTPS connections.</p>
+                    <p><strong>HTTPS-туннель</strong></p>
+                    <p>Ваш вторичный сервер будет перенаправлять трафик на ваш основной сервер через HTTPS-соединения.</p>
                     <p></p>
                 </label>
             </div>
         </div>
         <div class="form-group mt-3 mb-3">
-            <strong>To begin, copy and paste the following command into the SSH shell of your secondary server:</strong><br /><br />
+            <strong>Для начала скопируйте и вставьте следующую команду в оболочку SSH вашего вторичного сервера:</strong><br /><br />
             <code id="codeToCopy"></code>
             <br />
             <br />
             <button class="btn btn-outline-primary btn-copy">
-                Copy code to clipboard
+                Скопируйте код в буфер обмена
             </button>
         </div>
         <div class="form-group mb-4 text-center" style="margin-top: 72px;">
             <div class="spinner"></div><br>
             <div class="mt-2">
-                Waiting for your server to connect...
+                Ждем подключения вашего сервера...
             </div>
         </div>
 
