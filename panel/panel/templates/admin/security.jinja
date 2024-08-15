@@ -22,65 +22,65 @@
 
 {% if health_warnings.no_camouflage.status %}
 <div class="section security-card">
-    <h5><i class="fa-solid fa-circle-exclamation warning-icon"></i> Camouflage website</h5>
-    <p>Your domains will show the content from camouflage website so that it looks like a normal website and the chance of being blocked is much lower.</p>
-    <a href="/{{ admin_uuid }}/welcome/camouflage/?next_page=security">Set up camouflage website</a>
+    <h5><i class="fa-solid fa-circle-exclamation warning-icon"></i> Сайт для маскировки</h5>
+    <p>В ваших доменах будет отображаться содержимое маскируемого сайта, так что он будет выглядеть как обычный сайт, и шанс быть заблокированным будет гораздо ниже.</p>
+    <a href="/{{ admin_uuid }}/welcome/camouflage/?next_page=security">Создайте сайт для маскировки</a>
 </div>
 {% endif %}
 
 {% if health_warnings.update_available.status %}
 <div class="section security-card">
-    <h5>Update available</h5>
-    <p>There is a new version of Libertea available.</p>
-    <a href="https://github.com/VZiChoushaDui/Libertea#update" target="_blank">Update now</a>
+    <h5>Обновление доступно</h5>
+    <p>Вышла новая версия On The Other Side.</p>
+    <a href="https://github.com/VZiChoushaDui/Libertea#update" target="_blank">Обновить сейчас</a>
 </div>
 {% endif %}
 
 {% if health_warnings.proxy_update_available.status %}
 <div class="section security-card">
-    <h5>Proxy update available</h5>
-    <p>One or more of your Secondary Proxies needs to be updated.</p>
-    <a href="/{{ admin_uuid }}/domains/">More info</a>
+    <h5>Доступно обновление прокси-сервера</h5>
+    <p>Необходимо обновить один или несколько вторичных прокси-серверов.</p>
+    <a href="/{{ admin_uuid }}/domains/">Дополнительная информация</a>
 </div>
 {% endif %}
 
 {% if health_warnings.no_direct_country.status %}
 <div class="section security-card">
-    <h5>Direct route for your country</h5>
-    <p>You have not set up your country in Libertea. By doing so, you will be able to access domestic websites faster, and also reduce the chance of being blocked.</p>
-    <a href="/{{ admin_uuid }}/welcome/country/?next_page=security">Set up your country</a>
+    <h5>Прямой маршрут для вашей страны</h5>
+    <p>Вы не настроили свою страну в панели. Настроив страну это позволит вам быстрее получать доступ к отечественным сайтам, а также снизит вероятность их блокировки.</p>
+    <a href="/{{ admin_uuid }}/welcome/country/?next_page=security">Настройте свою страну</a>
 </div>
 {% endif %}
 
 {% if health_warnings.same_domain_for_panel_and_vpn.status %}
 <div class="section security-card">
-    <h5>Same domain for Panel and VPN</h5>
-    <p>You have set the same domain <strong>{{ panel_domain }}</strong> for Panel and VPN. This is not recommended because in case of a block, your clients will not be able to receive updates for the new routes.</p>
-    <p>We recommend using separate domains for Panel and VPN.</p>
+    <h5>Один и тот же домен для панели и VPN</h5>
+    <p>Вы установили один и тот же домен <strong>{{ panel_domain }}</strong> для панелей и VPN. Это не рекомендуется, поскольку в случае блокировки ваши клиенты не смогут получать обновления для новых маршрутов.</p>
+    <p>Мы рекомендуем использовать отдельные домены для панели и VPN.</p>
     <a href="/{{ admin_uuid }}/domains/">Change your domains</a>
 </div>
 {% endif %}
 
 {% if health_warnings.no_secondary_route.status %}
 <div class="section security-card">
-    <h5>Secondary proxies</h5>
-    <p>Consider adding a <strong>secondary proxy</strong> for better availability across various networks.</p>
+    <h5>Вторичные прокси-серверы</h5>
+    <p>Рассмотрите возможность добавления <strong>вторичного прокси</strong> для лучшей доступности в различных сетях.</p>
     <a href="/{{ admin_uuid }}/proxies/new/">Add a secondary proxy</a>
 </div>
 {% endif %}
 
 {% if health_warnings.secondary_route_without_domain.status %}
 <div class="section security-card">
-    <h5>Domains for Secondary proxies</h5>
-    <p>Some of your Secondary proxies does not have a connected domain. It's recommended to connect a domain or subdomain to each of your secondary proxies.</p>
+    <h5>Домены для вторичных прокси-серверов</h5>
+    <p>Некоторые из ваших вторичных прокси не имеют подключенного домена. Рекомендуется подключить домен или поддомен к каждому из ваших вторичных прокси.</p>
     <a href="/{{ admin_uuid }}/domains/">Go to Routes</a>
 </div>
 {% endif %}
 
 {% if no_warnings %}
 <div class="section mt-5 text-center">
-    <p>Everything looks good on your Libertea server. 🎉</p>
-    <a href="/{{ admin_uuid }}/dashboard/">Go back to Dashboard</a>
+    <p>На вашем сервере On The Other Side все выглядит хорошо. 🎉</p>
+    <a href="/{{ admin_uuid }}/dashboard/">Назад к панели управления</a>
 </div>
 {% endif %}
 
