@@ -336,31 +336,31 @@
             <div>
                 {% if back_to == 'domains' %}
                 <div class="tabs float-start">
-                    <a href="/{{ admin_uuid }}/domains/" class="tab back"><i class="fa-solid fa-arrow-left mx-1"></i> Back to Routes</a>
+                    <a href="/{{ admin_uuid }}/domains/" class="tab back"><i class="fa-solid fa-arrow-left mx-1"></i> Назад к маршрутам</a>
                 </div>
                 {% elif back_to == 'users' %}
                 <div class="tabs float-start">
-                    <a href="/{{ admin_uuid }}/users/" class="tab back"><i class="fa-solid fa-arrow-left mx-1"></i> Back to Users</a>
+                    <a href="/{{ admin_uuid }}/users/" class="tab back"><i class="fa-solid fa-arrow-left mx-1"></i> Назад к пользователям</a>
                 </div>
                 {% elif back_to == 'dashboard' %}
                 <div class="tabs float-start">
-                    <a href="/{{ admin_uuid }}/dashboard/" class="tab back"><i class="fa-solid fa-arrow-left mx-1"></i> Back to Dashboard</a>
+                    <a href="/{{ admin_uuid }}/dashboard/" class="tab back"><i class="fa-solid fa-arrow-left mx-1"></i> Назад к панели управления</a>
                 </div>
                 {% else %}
 
                 <a href="/{{ admin_uuid }}/">
                     <div class="logo">
-                        <img src="https://raw.githubusercontent.com/VZiChoushaDui/Libertea/master/docs/logo.png" />
+                        <img src="https://raw.githubusercontent.com/drknvpn/ontheotherside/master/docs/logo.png" />
                     </div>
                 </a>
 
                 <div style="clear: both;" class="d-block d-sm-none"></div>
 
                 <div class="tabs float-sm-end">
-                    <a href="/{{ admin_uuid }}/dashboard/" class="tab {% if page=='dashboard' %}active{% endif %}">Dashboard</a>
-                    <a href="/{{ admin_uuid }}/users/" class="tab {% if page=='users' %}active{% endif %}">Users</a>
-                    <a href="/{{ admin_uuid }}/domains/" class="tab {% if page=='domains' %}active{% endif %}">Routes</a>
-                    <a href="/{{ admin_uuid }}/settings/" class="tab {% if page=='settings' %}active{% endif %}">Settings</a>
+                    <a href="/{{ admin_uuid }}/dashboard/" class="tab {% if page=='dashboard' %}active{% endif %}">Панель управления</a>
+                    <a href="/{{ admin_uuid }}/users/" class="tab {% if page=='users' %}active{% endif %}">Пользователи</a>
+                    <a href="/{{ admin_uuid }}/domains/" class="tab {% if page=='domains' %}active{% endif %}">Маршруты</a>
+                    <a href="/{{ admin_uuid }}/settings/" class="tab {% if page=='settings' %}active{% endif %}">Настройки</a>
                 </div>
                 {% endif %}
 
@@ -372,7 +372,7 @@
             {% endblock %}
         </div>
         <div class="mt-5 mb-3 section" style="opacity: 0.5; font-size: 12px; margin: 0 auto; max-width: 900px;">
-            Libertea, version {{ libertea_version }}
+            On The Other Side 🖤 version {{ libertea_version }}
         </div>
     </body>
 </html>
