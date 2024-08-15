@@ -17,19 +17,19 @@
     <div class="row">
         <div class="col-12">
             {% if domains_count == 0 %}
-            <div class="mt-2 mb-3">To get started, add a domain to your VPN.</div>
-            <div class="mb-3">We recommend you to use a new domain for VPN connection, so if it's blocked, users can still get updates from {{ panel_domain }}.</div>
+            <div class="mt-2 mb-3">Чтобы начать работу, добавьте домен в VPN.</div>
+            <div class="mb-3">Мы рекомендуем использовать новый домен для VPN-соединения, чтобы в случае его блокировки пользователи могли получать обновления с {{ panel_domain }}.</div>
             <div class="mb-5">
                 <a class="btn btn-primary mb-2" href="/{{ admin_uuid }}/domains/new/?next=dashboard">
-                    Add new domain
+                    Добавить новый домен
                 </a>
                 <a class="btn btn-outline-primary mb-2" href="/{{ admin_uuid }}/domains/new/?domain={{ panel_domain }}&next=dashboard">
-                    I understand, use {{ panel_domain }}
+                    Я понимаю, использовать {{ panel_domain }}
                 </a>
             </div>
             {% endif %}
             <div class="mt-3 mb-3">
-                Add a user to your Libertea VPN to get started.
+                Добавьте пользователя в On The Other Side VPN, чтобы начать работу.
             </div>
             <div class="mb-5">
                 <a class="btn btn-primary" href="/{{ admin_uuid }}/users/new/?next=dashboard">
@@ -44,7 +44,7 @@
 
 {% if no_domain_warning %}
 <div class="w-100 mt-4 px-3">
-    🚨 Warning: You don't have any domains or secondary proxies set for your VPN. User's won't be able to connect to your VPN until you add a domain.<br /><a href="/{{ admin_uuid }}/domains/new/?next=dashboard">Add a domain</a>
+    🚨 Предупреждение: У вас нет доменов или вторичных прокси, установленных для вашей VPN. Пользователи не смогут подключиться к вашей VPN, пока вы не добавите домен.<br /><a href="/{{ admin_uuid }}/domains/new/?next=dashboard">Add a domain</a>
 </div>
 {% else %}
 <div class="section stats row">
@@ -54,25 +54,25 @@
     <div class="col-12 col-sm-8 col-md-9 col-xxl-10 mt-3 mb-3 mt-sm-5 mb-sm-3 d-flex align-items-center justify-content-center">
         <div class="w-100 text-center text-sm-start">
             {% if warning_level == 0 %}
-                <div style="font-weight: 700">Libertea is active and secure!</div>
+                <div style="font-weight: 700">On The Other Side активен и безопасен!</div>
                 <div class="mt-2">
-                    Your Libertea VPN is active and ready to use.
+                    Ваш On The Other Side VPN активен и готов к использованию.
                 </div>
             {% elif warning_level == 1 %}
-                <div style="font-weight: 700">Libertea is active and secure!</div>
+                <div style="font-weight: 700">On The Other Side активен и безопасен!</div>
                 <div class="mt-2">
-                    Your Libertea VPN is active and ready to use, but there are some tips you can follow to improve its security and availability.
+                    Ваш On The Other Side VPN активен и готов к использованию, но есть несколько советов, которым вы можете следовать, чтобы повысить его безопасность и доступность.
                 </div>
                 <div class="mt-2">
-                    <a href="/{{ admin_uuid }}/security/">View tips</a>
+                    <a href="/{{ admin_uuid }}/security/">Посмотреть советы</a>
                 </div>
             {% else %}
-                <div style="font-weight: 700">Libertea is active</div>
+                <div style="font-weight: 700">On The Other Side активен</div>
                 <div class="mt-2">
-                    <i class="fa-solid fa-circle-exclamation warning-icon"></i> There are some warnings you can fix to improve your Libertea VPN's security and availability.
+                    <i class="fa-solid fa-circle-exclamation warning-icon"></i> Есть несколько предупреждений, которые вы можете исправить, чтобы повысить безопасность и доступность On The Other Side VPN.
                 </div>
                 <div class="mt-2">
-                    <a href="/{{ admin_uuid }}/security/">View warnings</a>
+                    <a href="/{{ admin_uuid }}/security/">Просмотр предупреждений</a>
                 </div>
             {% endif %}
         </div>
@@ -138,10 +138,10 @@
         </div>
         <div class="modal-body">
             <p>
-                Libertea VPN's availability score is a measure of how secure and available your Libertea VPN is. The higher the score, the more secure and available your Libertea VPN is, and it's more reliable for your users to use.
+                Показатель доступности On The Other Side VPN - это показатель того, насколько безопасен и доступен ваш On The Other Side VPN. Чем выше этот показатель, тем более безопасным и доступным является ваш On The Other Side VPN и тем надежнее он для ваших пользователей.
             </p>
             <p>
-                You can improve your Libertea VPN's availability by following the tips on <a href="/{{ admin_uuid }}/security/">this page</a>.
+                Вы можете улучшить доступность вашего On The Other Side VPN, следуя советам на <a href="/{{ admin_uuid }}/security/">этой странице</a>.
             </p> 
         </div>
         <div class="modal-footer">
@@ -154,27 +154,27 @@
 <div class="section stats">
     <div class="row">
         <div class="col-12">
-            <h6 class="bordered">Libertea status</h6>
+            <h6 class="bordered">Статус VPN</h6>
         </div>
         <div class="col-6 col-sm-4 stats-item">
             <div class="stats-item-value">{{ users_count }}</div>
-            <div class="stats-item-desc">Users</div>
+            <div class="stats-item-desc">Пользователи</div>
         </div>
         <div class="col-6 col-sm-4 stats-item">
             <div class="stats-item-value">{{ active_domains_count }}</div>
-            <div class="stats-item-desc">Active Domains</div>
+            <div class="stats-item-desc">Активные домены</div>
         </div>
         <div class="col-6 col-sm-4 stats-item">
             <div class="stats-item-value">{{ proxies_count }}</div>
-            <div class="stats-item-desc">Secondary proxies</div>
+            <div class="stats-item-desc">Вторичные прокси-серверы</div>
         </div>
         <div class="col-6 col-sm-4 stats-item">
             <div class="stats-item-value cpu-percent spinner text-spinner">⌛</div>
-            <div class="stats-item-desc">Current CPU usage</div>
+            <div class="stats-item-desc">Текущее использование процессора</div>
         </div>
         <div class="col-6 col-sm-4 stats-item">
             <div class="stats-item-value ram-percent spinner text-spinner">⌛</div>
-            <div class="stats-item-desc">Current RAM usage</div>
+            <div class="stats-item-desc">Текущее использование оперативной памяти</div>
         </div>
     </div>
 </div>
@@ -182,38 +182,38 @@
 <div class="section stats">
     <div class="row">
         <div class="col-12">
-            <h6 class="bordered">Connection status</h6>
+            <h6 class="bordered">Состояние соединения</h6>
         </div>
         <div class="col-6 col-sm-4 stats-item">
             <div class="stats-item-value ips-connected-right-now spinner text-spinner">⌛</div>
-            <div class="stats-item-desc">IPs connected right now</div>
+            <div class="stats-item-desc">IP-адреса подключены прямо сейчас</div>
         </div>
         <div class="col-6 col-sm-4 stats-item">
             <div class="stats-item-value users-connected-right-now spinner text-spinner">⌛</div>
-            <div class="stats-item-desc">Users connected right now</div>
+            <div class="stats-item-desc">Пользователи, подключенные прямо сейчас</div>
         </div>
         <!-- <div class="col-6 col-sm-4 stats-item">
             <div class="stats-item-value ips-connected-today spinner text-spinner">⌛</div>
-            <div class="stats-item-desc">IPs connected today</div>
+            <div class="stats-item-desc">IP, подключенные сегодня</div>
         </div> -->
         <div class="col-6 col-sm-4 stats-item">
             <div class="stats-item-value users-connected-today spinner text-spinner">⌛</div>
-            <div class="stats-item-desc">Users connected today</div>
+            <div class="stats-item-desc">Пользователи, подключенные сегодня</div>
         </div>
         <div class="col-6 col-sm-4 stats-item">
             <div class="stats-item-value traffic-today spinner text-spinner">⌛</div>
-            <div class="stats-item-desc">Traffic today</div>
+            <div class="stats-item-desc">Трафик сегодня</div>
         </div>
         <div class="col-6 col-sm-4 stats-item">
             <div class="stats-item-value traffic-past-30-days spinner text-spinner">⌛</div>
-            <div class="stats-item-desc">Traffic in the past 30 days</div>
+            <div class="stats-item-desc">Трафик за последние 30 дней</div>
         </div>
     </div>
 </div>
 <div class="section stats">
     <div class="row">
         <div class="col-12">
-            <h6 class="bordered">Traffic usage over time</h6>
+            <h6 class="bordered">Использование трафика с течением времени</h6>
             <div class="spinner">
                 <canvas id="trafficChart" class="animated" style="width: 100%; height: 250px;"></canvas>
             </div>
@@ -223,7 +223,7 @@
 <div class="section stats">
     <div class="row">
         <div class="col-12">
-            <h6 class="bordered">Connected IPs over time</h6>
+            <h6 class="bordered">Подключенные IP-адреса с течением времени</h6>
             <div class="spinner">
                 <canvas id="connectionChart" class="animated" style="width: 100%; height: 250px;"></canvas>
             </div>
