@@ -5,7 +5,7 @@
         Sort by
         <div class="dropdown" style="display: inline">
             <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="order-main-button-text">Created At (Last to first)</span>
+                <span class="order-main-button-text">Создано по адресу (от последнего к первому)</span>
             </button>
             <ul class="dropdown-menu order-items-list">
                 <li><a class="dropdown-item" href="#" data-sort-id="created-at-desc" data-sort-field="data-created-at" data-order="desc" onclick="sort_items(this)">Created At (Newest first)</a></li>
@@ -24,7 +24,7 @@
 <div style="clear: both"></div>
 {% if no_domain_warning %}
 <div class="w-100 mt-4 px-3">
-    <i class="fa-solid fa-circle-exclamation warning-icon"></i> Warning: You don't have any domains or secondary proxies set for your VPN. User's won't be able to connect to your VPN until you add a domain.
+    <i class="fa-solid fa-circle-exclamation warning-icon"></i> Внимание: Для вашему VPN не настроены ни домены, ни дополнительные прокси-серверы. Пользователи не смогут подключиться к вашему VPN, пока вы не добавите домен.
 </div>
 {% endif %}
 <div class="list-group list-group-flush mt-2 users-list">
@@ -43,13 +43,13 @@
                             {{ user.note }}
                         </div>
                         <div class="col-5 list-item-subtitle" style="text-align: right;">
-                            {{ user.traffic_this_month }} GB @ {{ month_name }}
+                            {{ user.traffic_this_month }} ГБ @ {{ month_name }}
                         </div>
                         <div class="col-7 list-item-subtitle">
                             {{ user.id }}
                         </div>
                         <div class="col-5 list-item-subtitle" style="text-align: right;">
-                            {{ user.traffic_today }} GB today
+                            {{ user.traffic_today }} ГБ сегодня
                         </div>
                     </div>
                 </div>
