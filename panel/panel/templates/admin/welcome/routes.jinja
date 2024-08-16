@@ -2,14 +2,14 @@
 {% block content %}
 
 <div class="text-start mt-3">
-    <img src="https://raw.githubusercontent.com/VZiChoushaDui/Libertea/master/docs/logo.png" class="libertea-top-logo" />
+    <img src="https://raw.githubusercontent.com/drknvpn/ontheotherside/master/docs/logo.png" class="libertea-top-logo" />
     <p class="mt-4">
-        You have configured <span style="font-weight: 700;">{{ panel_domain }}</span> as your main domain.
+        You have configured <span style="font-weight: 700;">{{ panel_domain }}</span> в качестве основного домена.
     </p>
-    <p class="mt-2">To keep things simple, you can use the same domain to connect to VPN as well.</p>
-    <p class="mt-2">You can also use a different domain for VPN connection, and keep this one for receiving updates for your VPN, in case this domain gets blocked.</p>
+    <p class="mt-2">Чтобы упростить процесс, вы можете использовать тот же домен и для подключения к VPN.</p>
+    <p class="mt-2">Вы также можете использовать другой домен для подключения VPN, а этот оставить для получения обновлений для вашего VPN, на случай если этот домен будет заблокирован.</p>
 
     <a href="/{{ admin_uuid }}/welcome/routes/default/" class="btn btn-primary mt-5">Use {{ panel_domain }}</a>
-    <a href="/{{ admin_uuid }}/welcome/routes/custom/" class="btn btn-outline-primary mt-5">Set another domain</a>
+    <a href="/{{ admin_uuid }}/welcome/routes/custom/" class="btn btn-outline-primary mt-5">Установить другой домен</a>
 </div>
 {% endblock %}
